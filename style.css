@@ -1,0 +1,54 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+:root {
+  --shadow-color: #555;
+  --main-color: #0db95d;
+  --back-color: #888;
+  background-color: var(--back-color);
+  font-family: cursive;
+}
+
+.grid {
+  width: 100%;
+  display: grid;
+  gap: 5px;
+  grid-template-columns: repeat(3, 120px);
+  grid-template-rows: repeat(3, 120px);
+}
+.container {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 50px;
+}
+header {
+  font-size: 52px;
+  text-align: center;
+  color: var(--main-color);
+  text-shadow: 5px 2px 1px var(--shadow-color);
+  font-weight: bold;
+  padding: 15px;
+}
+.game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 100px;
+}
+.cell {
+  color: var(--main-color);
+  text-shadow: 3px 2px 1px var(--back-color);
+  font-size: 42px;
+  background-color: var(--shadow-color);
+  padding: 36px;
+  text-align: center;
+}
+.cell:hover {
+  background-color: #aceaa141;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.no-hover:hover {
+  background-color: #555;
+}
