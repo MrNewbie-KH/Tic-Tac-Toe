@@ -1,11 +1,18 @@
 "use strict";
 const cells = document.querySelectorAll(".cell");
+const starterForm = document.querySelector(".starter");
 const container = document.querySelector(".container");
 const showUp = document.createElement("div");
 const showUpText = document.createElement("p");
 const clearBtn = document.createElement("button");
+const startBtn = document.querySelector(".start-btn");
+const player1 = document.getElementById("player-1");
+const xInput = document.getElementById("xInput");
+const player2 = document.getElementById("player-2");
+const oInput = document.getElementById("oInput");
 clearBtn.textContent = "CLEAR";
 clearBtn.classList.add("clear-btn");
+clearBtn.classList.add("btn");
 showUp.appendChild(showUpText);
 showUp.classList.add("appear-up");
 const winner = document.createElement("span");
@@ -16,11 +23,19 @@ winner.classList.add("winner");
 // ===================================================================
 const gameBoard = (function () {
   const arrayBoard = [];
-  for (let i = 0; i < 9; i++) arrayBoard[i] = i;
-  const clearCell = function () {
-    for (let i = 0; i < 9; i++) cells[i].textContent = "";
+  const defaultArray = function () {
+    for (let i = 0; i < 9; i++) {
+      for (let i = 0; i < 9; i++) arrayBoard[i] = i;
+    }
   };
-  return { arrayBoard, clearCell };
+  const clearCell = function () {
+    for (let i = 0; i < 9; i++) {
+      cells[i].textContent = "";
+      cells[i].classList.remove("no-hover");
+    }
+  };
+
+  return { arrayBoard, clearCell, defaultArray };
 })();
 // ===================================================================
 // factory function to build players
@@ -33,6 +48,15 @@ const Player = function (name) {
     getName,
   };
 };
+// ===================================================================
+// Functionality when clicking start button
+// ===================================================================
+startBtn.addEventListener("click", function () {
+  player1.textContent = xInput.value || "X";
+  player2.textContent = oInput.value || "O";
+  // const player1 = Player();
+  container.removeChild(starterForm);
+});
 // ===================================================================
 // Function to check winner
 // ===================================================================
@@ -75,6 +99,10 @@ const gameController = (function () {
 })();
 // ======================================================================
 // mainEvent
+// ======================================================================
+gameBoard.defaultArray();
+gameBoard.clearCell();
+gameController.reset();
 cells.forEach((cell) => {
   cell.addEventListener("click", function (e) {
     if (e.target.textContent === "") {
@@ -109,14 +137,12 @@ cells.forEach((cell) => {
 });
 // ===================================================================
 // function to clear or reset the game
-// 1-reset array
-// 2-reset the appearing x and o
 // ===================================================================
 // const resetAll
 
 window.addEventListener("click", function (e) {
   if (e.target.classList.contains("clear-btn")) {
-    gameBoard.arrayBoard = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+    gameBoard.defaultArray();
     gameBoard.clearCell();
     gameController.reset();
 

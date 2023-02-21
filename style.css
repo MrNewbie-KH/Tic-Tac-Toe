@@ -6,7 +6,8 @@
   --shadow-color: #555;
   --main-color: #0db95d;
   --winner-color: #26936f;
-  --back-color: #aaa;
+  --back-color: #efc69080;
+  --light-color: #efc690;
   background-color: var(--back-color);
   font-family: cursive;
 }
@@ -36,6 +37,7 @@ header {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 100px;
 }
 .cell {
@@ -68,7 +70,27 @@ header {
   height: 100%;
   color: var(--winner-color);
   text-shadow: 3px 2px 1px #efc690;
-  background-color: rgba(68, 68, 68, 0.823);
+  background-color: rgba(68, 68, 68, 0.86);
+  text-align: center;
+  transform: translate(-50%, -50%) scale(1);
+  transition: 0.7s ease-in-out;
+  font-size: 52px;
+}
+.show-up {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  color: var(--winner-color);
+  text-shadow: 3px 2px 1px #efc690;
+  background-color: rgb(68, 68, 68);
   text-align: center;
   transform: translate(-50%, -50%) scale(1);
   transition: 0.7s ease-in-out;
@@ -78,7 +100,7 @@ header {
   font-size: 100px;
   text-shadow: 3px 2px 1px #ea8d15;
 }
-.clear-btn {
+.btn {
   padding: 10px;
   color: var(--winner-color);
   text-shadow: 3px 2px 1px #efc690;
@@ -89,8 +111,24 @@ header {
   border-radius: 10px;
   cursor: pointer;
 }
-.clear-btn:hover,
-.clear-btn:link {
+.btn:hover,
+.btn:link {
   transform: scale(1.2);
   color: red;
+}
+.starter {
+  text-align: center;
+}
+input {
+  padding: 10px;
+  border-radius: 10px;
+  background-color: var(--shadow-color);
+  color: rgba(247, 230, 199, 0.823);
+  font-size: 24px;
+}
+.who-vs-who {
+  font-size: 32px;
+  text-align: center;
+  color: var(--main-color);
+  text-shadow: 1px 2px 1px var(--shadow-color);
 }

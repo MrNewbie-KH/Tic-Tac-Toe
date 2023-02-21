@@ -10,8 +10,18 @@
   <body>
     <header>Tic Tac Toe</header>
     <div class="container">
+      <div class="starter show-up">
+        <p>Welcome to X..... O</p>
+        <div class="inputs">
+          <input type="text" id="xInput" placeholder="Player X name" />
+          <input type="text" id="oInput" placeholder="Player O name" />
+        </div>
+        <button class="start-btn btn">Start</button>
+      </div>
       <div class="game-container">
-        <div class="who-vs-who">Player 1 VS player 2</div>
+        <div class="who-vs-who">
+          <span id="player-1"></span> VS <span id="player-2"> </span>
+        </div>
         <div class="grid">
           <div class="cell" id="cell-1"></div>
           <div class="cell" id="cell-2"></div>
