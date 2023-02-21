@@ -48,14 +48,18 @@ const Player = function (name) {
     getName,
   };
 };
+let playerNumOne = Player("X");
+let playerNumTwo = Player("O");
 // ===================================================================
 // Functionality when clicking start button
 // ===================================================================
 startBtn.addEventListener("click", function () {
   player1.textContent = xInput.value || "X";
   player2.textContent = oInput.value || "O";
-  // const player1 = Player();
   container.removeChild(starterForm);
+  //   playerNumOne = Player(String(player1.textContent));
+  //   playerNumTwo = Player(String(player2.textContent));
+  //   console.log(playerNumOne);
 });
 // ===================================================================
 // Function to check winner
@@ -117,7 +121,8 @@ cells.forEach((cell) => {
         gameBoard.arrayBoard[e.target.id.slice(-1) - 1] = "O";
       }
       if (checkWinner(gameBoard.arrayBoard) === true) {
-        winner.textContent = element;
+        if (element === "X") winner.textContent = playerNumOne.getName();
+        else winner.textContent = playerNumTwo.getName();
         showUp.textContent = `<< The Winner is ... >> `;
         showUp.appendChild(winner);
         container.appendChild(showUp);

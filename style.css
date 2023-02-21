@@ -122,8 +122,8 @@ header {
 input {
   padding: 10px;
   border-radius: 10px;
-  background-color: var(--shadow-color);
-  color: rgba(247, 230, 199, 0.823);
+  background-color: rgba(247, 230, 199, 0.823);
+  color: var(--winner-color);
   font-size: 24px;
 }
 .who-vs-who {
